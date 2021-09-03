@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Grababeer</title>
+    <link href="{% static '/css/style.css'%}" rel="stylesheet" />
 </head>
 <body>
     <div class='container-fluid banner'>
@@ -26,28 +28,5 @@
         </div>
     </div>
 
-<style type="text/css">
-    .img{
-        height: 350px;
-    }
-    .banner{
-        background-color: mediumpurple;
-        height: 12em;
-    }
-    .title{
-        font-size: 6em;
-        text-align: center;
-        color: whitesmoke;
-    }
-    .subtitle{
-        color: white;
-        text-align: center;
-    }
-    .bottle{
-        text-align: left;
-        padding: 15px;
-        border: solid black;
-    }
-</style>
 </body>
 </html>
