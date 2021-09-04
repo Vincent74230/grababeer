@@ -2,21 +2,32 @@
 .img{
     height: 350px;
 }
+
 .banner{
     background-color: mediumpurple;
     height: 12em;
 }
+
 .title{
     font-size: 6em;
     text-align: center;
     color: whitesmoke;
 }
+
 .subtitle{
     color: white;
     text-align: center;
 }
-.bottle{
-    text-align: left;
-    padding: 15px;
+
+.pagination{
+    text-align: center;
     border: solid black;
+}
+
+.bottle{
+    border : solid black;
+}
+
+.label{
+    border : solid black;
 }

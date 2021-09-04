@@ -10,23 +10,47 @@
 </head>
 <body>
     <div class='container-fluid banner'>
-        <h1 class='title'>GRABABEER APP</h1>
+        <h1 class='title'>GRABABEER</h1>
         <h3 class='subtitle'>Find the one you deserve</h3>
     </div>
 
+    <div class='container pagination'>
+        {{page}}
+    </div>
 
+    {% for beer in list_of_beers %}
     <div class='container'>
         <div class='row'>
             <div class='col-md-2 bottle'>
-                <img class='img' src="https://images.punkapi.com/v2/192.png">
+                <img class='img' src={{beer.image_url}}>
             </div>
-            <div class='col-md-10 bottle'>
-                <p>IPA PUNK</p>
-                <p>Very good pale ale designed and  brewed in Vancouver</p>
-                <p>IBU : 60</p>
-                <p>Made out with : weath</p>
+            <div class='col-md-10 label'>
+                <h3>{{beer.name}}</h3>
+                <p>{{beer.description}}</p>
+                <p>IBU: {{beer.ibu}}</p>
+
+                <div class='container'>
+                <div class='row'>
+                    <div class='col-6'>
+                    <p><strong>Malts</strong></p>
+                    {% for element in beer.ingredients.malt %}
+                        <li>{{element.name}}</li>
+                    {% endfor %}
+                    </div>
+                    <div class= 'col-6'>
+                    <p><strong>Hops</strong></p>
+                    {% for element in beer.ingredients.hops %}
+                        <li>{{element.name}}</li>
+                    {% endfor %}
+                    </div>
+                </div>
+                </div>
+
+            </div>
         </div>
     </div>
+    {% endfor %}
 
 </body>
 </html>
+               <!-- <img class='img' src=https://images.punkapi.com/v2/192.png>  -->
