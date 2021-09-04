@@ -31,17 +31,22 @@
 
                 <div class='container'>
                     <div class='row'>
-                        <div class='col-6'>
+                        <div class='col-4'>
                             <p><strong>Malts</strong></p>
                             {% for element in beer.ingredients.malt %}
                                 <li>{{element.name}}</li>
                             {% endfor %}
                         </div>
-                        <div class= 'col-6'>
+                        <div class= 'col-4'>
                             <p><strong>Hops</strong></p>
                             {% for element in beer.ingredients.hops %}
                                 <li>{{element.name}}</li>
                             {% endfor %}
+                        </div>
+                        <div class= 'col-4'>
+                            <form method='get' action="{% url 'home:save_fav' %}">
+                                <button name=favourite_beer value={{beer.id}}>I want this one !</button>
+                            </form>
                         </div>
                     </div>
                 </div>

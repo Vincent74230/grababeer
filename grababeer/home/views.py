@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .fetchbeers import beers
+from .grababeer_extends import beers, single_beer
  
 def index(request):
     page=1
@@ -18,3 +18,9 @@ def index(request):
     }
 
     return render(request, 'home/index.html', context)
+
+def save_favourite(request):
+    beer = request.GET.get('favourite_beer')
+    single_beer(beer)
+
+    return redirect("/")
