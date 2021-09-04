@@ -19,7 +19,7 @@
     </div>
 
     {% for beer in list_of_beers %}
-    <div class='container'>
+    <div class='container bottle_label'>
         <div class='row'>
             <div class='col-md-2 bottle'>
                 <img class='img' src={{beer.image_url}}>
@@ -30,20 +30,20 @@
                 <p>IBU: {{beer.ibu}}</p>
 
                 <div class='container'>
-                <div class='row'>
-                    <div class='col-6'>
-                    <p><strong>Malts</strong></p>
-                    {% for element in beer.ingredients.malt %}
-                        <li>{{element.name}}</li>
-                    {% endfor %}
+                    <div class='row'>
+                        <div class='col-6'>
+                            <p><strong>Malts</strong></p>
+                            {% for element in beer.ingredients.malt %}
+                                <li>{{element.name}}</li>
+                            {% endfor %}
+                        </div>
+                        <div class= 'col-6'>
+                            <p><strong>Hops</strong></p>
+                            {% for element in beer.ingredients.hops %}
+                                <li>{{element.name}}</li>
+                            {% endfor %}
+                        </div>
                     </div>
-                    <div class= 'col-6'>
-                    <p><strong>Hops</strong></p>
-                    {% for element in beer.ingredients.hops %}
-                        <li>{{element.name}}</li>
-                    {% endfor %}
-                    </div>
-                </div>
                 </div>
 
             </div>
@@ -51,6 +51,7 @@
     </div>
     {% endfor %}
 
+
+<script type='text/javascript' src="{% static '/js/script.js' %}"></script>
 </body>
 </html>
-               <!-- <img class='img' src=https://images.punkapi.com/v2/192.png>  -->

@@ -1,22 +1,42 @@
 @charset "UTF-8";
 .img{
     height: 350px;
+    max-width: 170px;
 }
+
 .banner{
     background-color: mediumpurple;
     height: 12em;
 }
+
 .title{
     font-size: 6em;
     text-align: center;
     color: whitesmoke;
 }
+
 .subtitle{
     color: white;
     text-align: center;
 }
-.bottle{
-    text-align: left;
-    padding: 15px;
+
+.pagination{
+    text-align: center;
     border: solid black;
+}
+
+.bottle_label{
+    border : solid mediumpurple;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    border-radius: 15px;
+
+}
+
+.bottle{
+    padding-right: 1em;
+}
+
+.label{
+
 }
