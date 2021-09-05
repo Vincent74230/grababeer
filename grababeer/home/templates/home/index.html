@@ -18,6 +18,17 @@
         {{page}}
     </div>
 
+    <a href="{% url 'home:index' %}?pagination=previous&page={{page}}">previous</a>
+    <a href="{% url 'home:index' %}?pagination=next&page={{page}}">Next</a>
+<!--
+    <form action="{% url 'home:index' %}">
+        <button name='pagination' value='previous'>Previous</button>
+    </form>
+
+    <form action="{% url 'home:index' %}">
+        <button name='pagination' value='next'>Next</button>
+    </form>
+-->
     {% for beer in list_of_beers %}
     <div class='container bottle_label'>
         <div class='row'>
