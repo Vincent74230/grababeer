@@ -29,12 +29,15 @@ def single_beer(beer_id):
         hops_query = Hops(name=element['name'])
         hops_query.save()
         #Linking hops to that beer
-        beer_query = Beers(barcode=beer_id)
-        print(beer_query)
-
+        beer_query = Beers.objects.get(barcode=beer_id)
+        hops_query.hops_in_that_beer.add(beer_query)
 
 
     malts = response[0]['ingredients']['malt']
     for element in malts:
+        #Saving malts conatained in that beer
         malts_query = Malts(name=element['name'])
         malts_query.save()
+        #Linking malts to that beer
+        beer_query = Beers.objects.get(barcode=beer_id)
+        malts_query.malts_in_that_beer.add(beer_query)

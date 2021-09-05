@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'grababeer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'grababeer_db',
+        'NAME': 'grababeer',
         'USER': 'beer_user',
         'PASSWORD': 'password',
         'HOST':'localhost',
