@@ -25,28 +25,26 @@ def save_my_beer(beer_id):
     )
     favourite_beer.save()
 
-    hops = response[0]['ingredients']['hops']
+    hops = response[0]["ingredients"]["hops"]
     for element in hops:
-        #Saving hops contained in this beer
-        hops_query = Hops(name=element['name'])
+        # Saving hops contained in this beer
+        hops_query = Hops(name=element["name"])
         hops_query.save()
-        #Linking hops to that beer
+        # Linking hops to that beer
         beer_query = Beers.objects.get(barcode=beer_id)
         hops_query.hops_in_that_beer.add(beer_query)
 
-
-    malts = response[0]['ingredients']['malt']
+    malts = response[0]["ingredients"]["malt"]
     for element in malts:
-        #Saving malts conatained in that beer
-        malts_query = Malts(name=element['name'])
+        # Saving malts conatained in that beer
+        malts_query = Malts(name=element["name"])
         malts_query.save()
-        #Linking malts to that beer
+        # Linking malts to that beer
         beer_query = Beers.objects.get(barcode=beer_id)
         malts_query.malts_in_that_beer.add(beer_query)
 
+
 def single_beer(beer_id):
-    response = requests.get(
-        "https://api.punkapi.com/v2/beers/{}".format(beer_id)
-    )
+    response = requests.get("https://api.punkapi.com/v2/beers/{}".format(beer_id))
     response = response.json()
     return response
