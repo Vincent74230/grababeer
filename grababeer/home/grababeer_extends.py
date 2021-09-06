@@ -3,6 +3,7 @@ from .models import Beers, Malts, Hops
 
 
 def beers(page):
+    """Gets a page of 25 beers"""
     page = int(page)
     response = requests.get(
         "https://api.punkapi.com/v2/beers?page={}&per_page=25".format(page)
@@ -11,7 +12,8 @@ def beers(page):
     return response
 
 
-def single_beer(beer_id):
+def save_my_beer(beer_id):
+    """registers a single beer in DB, adds malts and hops and links it to related beer"""
     response = requests.get("https://api.punkapi.com/v2/beers/{}".format(beer_id))
     response = response.json()
     favourite_beer = Beers(
@@ -41,3 +43,10 @@ def single_beer(beer_id):
         #Linking malts to that beer
         beer_query = Beers.objects.get(barcode=beer_id)
         malts_query.malts_in_that_beer.add(beer_query)
+
+def single_beer(beer_id):
+    response = requests.get(
+        "https://api.punkapi.com/v2/beers/{}".format(beer_id)
+    )
+    response = response.json()
+    return response

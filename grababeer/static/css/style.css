@@ -6,13 +6,22 @@
 
 .banner{
     background-color: mediumpurple;
-    height: 12em;
+    height: 16em;
 }
 
 .title{
     font-size: 6em;
     text-align: center;
     color: whitesmoke;
+}
+
+a{
+    font-size: 1.5em;
+    color:  mediumpurple;
+}
+
+.actual_page{
+    font-size: 1.5em;
 }
 
 .subtitle{
@@ -22,7 +31,7 @@
 
 .pagination{
     text-align: center;
-    border: solid black;
+    padding-top: 1em;
 }
 
 .bottle_label{
@@ -30,7 +39,6 @@
     margin-bottom: 1em;
     margin-top: 1em;
     border-radius: 15px;
-
 }
 
 .bottle{

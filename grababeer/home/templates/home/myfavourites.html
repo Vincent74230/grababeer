@@ -10,49 +10,34 @@
 </head>
 <body>
     <div class='container-fluid banner'>
-        <h1 class='title'>GRABABEER</h1>
-        <h3 class='subtitle'>Find the one you deserve</h3>
+        <a href="{% url 'home:index' %}"><h1 class='title'>GRABABEER</h1></a>
+        <h3 class='subtitle'>My favourites</h3>
     </div>
 
-    <div class='container pagination d-flex justify-content-center'>
-        <a href="{% url 'home:index' %}?pagination=previous&page={{page}}">Previous</a>
-        <div class='actual_page'>Page {{page}}</div>
-        <a href="{% url 'home:index' %}?pagination=next&page={{page}}">Next</a>
-    </div>
-
-    <div class='container d-flex justify-content-center'>
-        <a href="{% url 'home:my_favourites' %}">My favourites</a>
-    </div>
-
-    {% for beer in list_of_beers %}
+    {% for beer in list_of_favourite_beers %}
     <div class='container bottle_label'>
         <div class='row'>
             <div class='col-md-2 bottle'>
-                <img class='img' src={{beer.image_url}}>
+                <img class='img' src={{beer.0.image_url}}>
             </div>
             <div class='col-md-10 label'>
-                <h3>{{beer.name}}</h3>
-                <p>{{beer.description}}</p>
-                <p>IBU: {{beer.ibu}}</p>
+                <h3>{{beer.0.name}}</h3>
+                <p>{{beer.0.description}}</p>
+                <p>IBU: {{beer.0.ibu}}</p>
 
                 <div class='container'>
                     <div class='row'>
-                        <div class='col-4'>
+                        <div class='col-6'>
                             <p><strong>Malts</strong></p>
-                            {% for element in beer.ingredients.malt %}
+                            {% for element in beer.0.ingredients.malt %}
                                 <li>{{element.name}}</li>
                             {% endfor %}
                         </div>
-                        <div class= 'col-4'>
+                        <div class= 'col-6'>
                             <p><strong>Hops</strong></p>
-                            {% for element in beer.ingredients.hops %}
+                            {% for element in beer.0.ingredients.hops %}
                                 <li>{{element.name}}</li>
                             {% endfor %}
-                        </div>
-                        <div class= 'col-4'>
-                            <form method='get' action="{% url 'home:save_fav' %}">
-                                <button name=favourite_beer value={{beer.id}}>I want this one !</button>
-                            </form>
                         </div>
                     </div>
                 </div>
