@@ -6,6 +6,7 @@ from .models import Beers
 def index(request):
 
     pagination = request.GET.get('pagination')
+
     if not pagination:
         page = 1
         list_of_beers = beers(page)
